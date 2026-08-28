@@ -163,9 +163,43 @@ function drawCards(){
   }).join('');
   fitAll();
 }
+var GEO={};
+function measure(im){
+  var W=im.naturalWidth,H=im.naturalHeight,k=W+'x'+H;
+  if(GEO[k])return GEO[k];
+  try{
+    var c=document.createElement('canvas');c.width=W;c.height=H;
+    var cx=c.getContext('2d',{willReadFrequently:true});cx.drawImage(im,0,0);
+    var d=cx.getImageData(0,0,W,H).data,px,y,i,n;
+    var nw=[];for(px=0;px<W;px++)nw[px]=0;
+    var y1=Math.min(H-1,Math.floor(H*0.75));
+    for(y=30;y<y1;y+=2){for(px=0;px<W;px++){i=(y*W+px)*4;
+      if(d[i]<235||d[i+1]<235||d[i+2]<235)nw[px]++;}}
+    var mx=0;for(px=0;px<W;px++){if(nw[px]>mx)mx=nw[px];}
+    var th=mx*0.25,L=-1,R=-1;
+    for(px=0;px<W;px++){if(nw[px]>=th){L=px;break;}}
+    for(px=W-1;px>=0;px--){if(nw[px]>=th){R=px;break;}}
+    if(L>=0&&R>L+50){
+      var T=0;
+      for(y=0;y<H;y++){n=0;for(px=L;px<=R;px++){i=(y*W+px)*4;
+        if(d[i]<235||d[i+1]<235||d[i+2]<235)n++;}
+        if(n>(R-L)*0.15){T=y;break;}}
+      GEO[k]={L:L,w:R-L+1,T:Math.max(0,T-8)};
+      return GEO[k];
+    }
+  }catch(e){}
+  GEO[k]={L:Math.round((W-238)/2),w:238,T:5};
+  return GEO[k];
+}
 function fitAll(){
   Array.prototype.forEach.call(document.querySelectorAll('.thumb img'),function(im){
-    var f=function(){var W=im.naturalWidth;if(!W)return;var s=178/238;im.style.width=(W*s)+'px';im.style.left=(-((W-238)/2)*s)+'px';im.style.top=(-5*s)+'px';};
+    var f=function(){
+      if(!im.naturalWidth)return;
+      var g=measure(im),s=178/g.w;
+      im.style.width=(im.naturalWidth*s)+'px';
+      im.style.left=(-g.L*s)+'px';
+      im.style.top=(-g.T*s)+'px';
+    };
     if(im.complete&&im.naturalWidth)f();else im.onload=f;
   });
 }
