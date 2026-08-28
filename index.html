@@ -161,6 +161,13 @@ function drawCards(){
       '<div class="progl">'+pct+'% of the leading ad on this sort</div>'+
       '</div></div>';
   }).join('');
+  fitAll();
+}
+function fitAll(){
+  Array.prototype.forEach.call(document.querySelectorAll('.thumb img'),function(im){
+    var f=function(){var W=im.naturalWidth;if(!W)return;var s=178/238;im.style.width=(W*s)+'px';im.style.left=(-((W-238)/2)*s)+'px';im.style.top=(-5*s)+'px';};
+    if(im.complete&&im.naturalWidth)f();else im.onload=f;
+  });
 }
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function drawTable(){
