@@ -174,7 +174,7 @@ var x0=0,x1=W-1,y0=0;for(x=0;x<W;x++){if(col[x]>2){x0=x;break;}}for(x=W-1;x>=0;x
 var w=x1-x0+1;if(w<W*0.08||w>W*0.5)return cache[k]=fb;
 return cache[k]={x:x0,w:w,y:Math.max(0,y0-3)};}
 function ap(img){if(img.dataset.cr||!img.naturalWidth)return;var c=det(img),s=TW/c.w;img.style.width=(img.naturalWidth*s).toFixed(1)+"px";img.style.left=(-c.x*s).toFixed(1)+"px";img.style.top=(-c.y*s).toFixed(1)+"px";img.dataset.cr="1";}
-function scan(){var l=document.querySelectorAll(".thumb img");for(var i=0;i<l.length;i++){(function(im){if(im.complete&&im.naturalWidth)ap(im);else im.addEventListener("load",function(){ap(im);},{once:true});})(l[i]);}}
+function scan(){var l=document.querySelectorAll(".thumb img");for(var i=0;i<l.length;i++){(function(im){im.loading="eager";if(im.complete&&im.naturalWidth)ap(im);else im.addEventListener("load",function(){ap(im);},{once:true});})(l[i]);}}
 scan();window.addEventListener("load",scan);
 if(window.MutationObserver)new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
 })();
