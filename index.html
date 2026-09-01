@@ -143,6 +143,14 @@ function drawCards(){
       <div class="tiles">${tiles}</div>
       <div class="track"><div class="fill" style="width:${pct.toFixed(1)}%"></div></div>
     </div></div>`;}).join('');
+  fitThumbs();
+}
+const CROP={1335:{w:994,l:-408,t:-3},1512:{w:1282,l:-551,t:-3}};
+function fitThumbs(){
+  document.querySelectorAll('.thumb img').forEach(im=>{
+    const ap=()=>{const c=CROP[im.naturalWidth];if(c){im.style.width=c.w+'px';im.style.left=c.l+'px';im.style.top=c.t+'px';}};
+    if(im.complete&&im.naturalWidth)ap(); else im.addEventListener('load',ap,{once:true});
+  });
 }
 function drawTable(){
   const rs=rows(), d=D[range];
