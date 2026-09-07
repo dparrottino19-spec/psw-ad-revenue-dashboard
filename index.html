@@ -61,7 +61,7 @@ footer{margin-top:26px;font-size:12px;color:var(--mut);line-height:1.6;border-to
 <header><div><h1>Pure Southern Water &amp; Air</h1><div class="sub">Ad revenue attribution &middot; which creative actually produced the revenue</div></div>
 <div class="right"><b>Parrottino Digital</b><span id="hdrRange"></span><br>Generated September 7, 2026</div></header>
 <div class="wrap">
-<div class="ranges"><button data-r="r28"><b>28 days</b>Aug 9 – Sep 5, 2026</button><button data-r="r90"><b>90 days</b>Jun 8 – Sep 5, 2026</button><button data-r="rytd"><b>Year to date</b>Jan 1 – Sep 5, 2026</button></div>
+<div class="ranges"><button data-r="r28"><b>28 days</b>Aug 10 – Sep 6, 2026</button><button data-r="r90"><b>90 days</b>Jun 9 – Sep 6, 2026</button><button data-r="rytd"><b>Year to date</b>Jan 1 – Sep 6, 2026</button></div>
 <div class="kpis" id="kpis"></div>
 <div class="note" id="note"></div>
 <div class="bar"><label>Sort by</label><button data-s="closed">Closed revenue</button><button data-s="spend">Spend</button><button data-s="purchases">Purchases</button><button data-s="roas">ROAS</button><button data-s="potential">Revenue potential</button><button data-s="roasp">ROAS potential</button><span class="sp"></span>
@@ -126,6 +126,7 @@ function note(){const d=D[R];
     +'<b>Revenue is credited to the date of the first click, not the date the job closed.</b> A recently launched ad therefore looks weaker than it is, and short-window ROAS can read high because the spend is recent while the revenue was seeded earlier.';}
 function render(){
   document.querySelectorAll(".ranges button").forEach(b=>b.classList.toggle("on",b.dataset.r===R));
+  document.querySelectorAll(".ranges button").forEach(b=>{if(D[b.dataset.r])b.lastChild.nodeValue=D[b.dataset.r].dates;});
   document.querySelectorAll(".bar button[data-s]").forEach(b=>b.classList.toggle("on",b.dataset.s===SORT));
   document.querySelectorAll(".bar button[data-v]").forEach(b=>b.classList.toggle("on",b.dataset.v===VIEW));
   $("#hdrRange").textContent=D[R].label+" · "+D[R].dates;
