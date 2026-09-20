@@ -1,235 +1,213 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pure Southern Water &amp; Air - Ad Revenue Attribution</title>
+<title>Pure Southern Water | Ad Revenue Attribution</title>
 <style>
-:root{--blue:#12557E;--blue2:#0d3f5e;--ink:#132029;--mut:#5d6b76;--edge:#dde5ea;--bg:#f4f7f9;--good:#1c7f52;--amber:#8a5a05}
 *{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:var(--blue);color:#fff;padding:18px 26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+:root{--blue:#12557E;--ink:#12212e;--mut:#64798a;--edge:#dfe6ec;--bg:#f4f7f9;--pos:#1a7f5a;--amber:#b06f12}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--blue);color:#fff;padding:18px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 header h1{margin:0;font-size:19px;font-weight:650;letter-spacing:.2px}
-header .sub{font-size:12px;opacity:.82;margin-top:3px}
-header .right{text-align:right;font-size:12px;opacity:.92}
-header .right b{display:block;font-size:14px;opacity:1}
+header .r{text-align:right;font-size:12.5px;opacity:.92;line-height:1.5}
 .wrap{max-width:1180px;margin:0 auto;padding:20px 22px 60px}
-.ranges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.ranges button{background:#fff;border:1px solid var(--edge);border-radius:8px;padding:8px 13px;cursor:pointer;font:inherit;font-size:12.5px;line-height:1.35;text-align:left;color:var(--ink)}
-.ranges button b{display:block;font-size:13px}
-.ranges button span{color:var(--mut);font-size:11px}
-.ranges button.on{background:var(--blue);border-color:var(--blue);color:#fff}
-.ranges button.on span{color:#cfe2ef}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:11px;margin-bottom:16px}
-.kpi{background:#fff;border:1px solid var(--edge);border-radius:10px;padding:13px 14px}
-.kpi .k{font-size:10.5px;letter-spacing:.7px;text-transform:uppercase;color:var(--mut);font-weight:600}
-.kpi .v{font-size:22px;font-weight:680;margin-top:5px;letter-spacing:-.4px}
-.kpi.hero{background:var(--blue);border-color:var(--blue);color:#fff}
-.kpi.hero .k{color:#bcd7e8}
-.note{background:#fff;border:1px solid var(--edge);border-left:3px solid var(--blue);border-radius:8px;padding:12px 15px;font-size:12.5px;line-height:1.65;color:#37474f;margin-bottom:16px}
-.note b{color:var(--ink)}
+.ranges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.ranges button{background:#fff;border:1px solid var(--edge);border-radius:8px;padding:8px 14px;cursor:pointer;font:inherit;font-size:13px;color:var(--mut);line-height:1.3;text-align:left}
+.ranges button b{display:block;color:var(--ink);font-size:13.5px}
+.ranges button.on{background:var(--blue);border-color:var(--blue);color:#d8e8f4}
+.ranges button.on b{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
+.kpi{background:#fff;border:1px solid var(--edge);border-radius:10px;padding:12px 13px}
+.kpi .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--mut);font-weight:600}
+.kpi .v{font-size:19px;font-weight:680;margin-top:5px;letter-spacing:-.3px}
+.kpi.hero{background:var(--blue);border-color:var(--blue)}
+.kpi.hero .l{color:#9dc4dc}.kpi.hero .v{color:#fff}
+.note{background:#fff;border:1px solid var(--edge);border-left:3px solid var(--blue);border-radius:8px;padding:11px 14px;font-size:12.5px;color:#41576a;margin-bottom:16px}
+.note p{margin:0 0 6px}.note p:last-child{margin:0}
 .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
 .bar label{font-size:12px;color:var(--mut);font-weight:600}
-select,.tog button{font:inherit;font-size:12.5px;padding:7px 10px;border:1px solid var(--edge);border-radius:7px;background:#fff;color:var(--ink);cursor:pointer}
+select,.tog button{font:inherit;font-size:13px;padding:7px 11px;border:1px solid var(--edge);border-radius:7px;background:#fff;color:var(--ink);cursor:pointer}
 .tog{display:flex;gap:6px;margin-left:auto}
-.tog button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
-.card{background:#fff;border:1px solid var(--edge);border-radius:10px;padding:13px;display:flex;gap:14px;margin-bottom:11px}
+.tog button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.card{background:#fff;border:1px solid var(--edge);border-radius:10px;padding:13px;display:flex;gap:14px;margin-bottom:10px}
 .thumb{flex:0 0 178px;width:178px;height:314px;overflow:hidden;position:relative;border-radius:7px;border:1px solid var(--edge);background:#fff}
-.thumb img{position:absolute;width:998px;max-width:none;left:-410px;top:-4px;display:block;border:0}
-.ph{flex:0 0 178px;width:178px;height:314px;border-radius:7px;border:1px dashed var(--edge);background:#fafcfd;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-size:11.5px;color:var(--mut)}
-.meta{flex:1;min-width:0}
-.rank{display:inline-block;background:var(--blue);color:#fff;border-radius:5px;font-size:11px;font-weight:700;padding:2px 7px;margin-right:8px}
-.nm{font-weight:650;font-size:14.5px;display:inline;word-break:break-word}
-.sm{font-size:11.5px;color:var(--mut);margin-top:5px}
-.badge{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:4px;margin-top:7px;font-weight:600}
-.badge.m{background:#e8f1f7;color:var(--blue2)}
-.badge.u{background:#fdf3e0;color:var(--amber)}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px;margin-top:11px}
-.tile{background:var(--bg);border-radius:7px;padding:8px 9px}
-.tile .k{font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--mut);font-weight:600}
-.tile .v{font-size:14.5px;font-weight:660;margin-top:3px}
-.prog{height:5px;background:var(--bg);border-radius:3px;margin-top:11px;overflow:hidden}
-.prog i{display:block;height:100%;background:var(--blue);border-radius:3px}
-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--edge);border-radius:10px;overflow:hidden;font-size:12.5px}
+.thumb img{position:absolute;max-width:none;display:block;border:0}
+.thumb .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;font-size:12px;color:var(--mut);background:#eef2f5}
+.meat{flex:1;min-width:0}
+.hd{display:flex;gap:9px;align-items:flex-start;margin-bottom:3px}
+.rank{flex:0 0 auto;background:var(--blue);color:#fff;border-radius:6px;font-size:11.5px;font-weight:700;padding:3px 8px;margin-top:1px}
+.nm{font-weight:650;font-size:15px;word-break:break-word}
+.sub{font-size:11.5px;color:var(--mut);margin-bottom:9px;word-break:break-all}
+.badge{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:20px;margin-right:5px;font-weight:600}
+.badge.m{background:#e7f0f7;color:var(--blue)}
+.badge.u{background:#fdf1de;color:var(--amber)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:9px}
+.st{background:var(--bg);border-radius:7px;padding:7px 9px}
+.st .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--mut);font-weight:600}
+.st .v{font-size:14.5px;font-weight:650;margin-top:2px}
+.track{height:6px;background:#eceff2;border-radius:4px;overflow:hidden}
+.fill{height:100%;background:var(--blue);border-radius:4px}
+.trackl{font-size:10.5px;color:var(--mut);margin-top:4px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--edge);border-radius:10px;overflow:hidden;font-size:13px}
 th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--edge);white-space:nowrap}
-th:first-child,td:first-child{text-align:left;white-space:normal;min-width:210px}
-th:nth-child(2),td:nth-child(2){text-align:left;white-space:normal}
-th{background:#eef3f6;font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--mut);cursor:pointer;user-select:none}
-th.s{color:var(--blue);background:#e3edf4}
-tr.tot td{font-weight:700;background:#f7fafb;border-top:2px solid var(--edge)}
-h2{font-size:14px;margin:26px 0 10px;letter-spacing:.2px}
-.nonad{background:#fff;border:1px solid var(--edge);border-radius:10px;padding:4px 15px 12px}
-.nonad .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--edge);flex-wrap:wrap}
-.nonad .row:last-child{border-bottom:0}
-.nonad .why{font-size:11.5px;color:var(--mut);margin-top:3px;max-width:560px}
-.nonad .nums{font-size:12.5px;text-align:right;white-space:nowrap}
-footer{margin-top:30px;font-size:11.5px;color:var(--mut);line-height:1.75;border-top:1px solid var(--edge);padding-top:14px}
-.hide{display:none}
-@media(max-width:720px){.card{flex-direction:column}.thumb,.ph{flex:none;width:178px}}
-</style></head><body>
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left;white-space:normal}
+th{background:#eef3f7;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);cursor:pointer;user-select:none}
+th.s{color:var(--blue)}
+tr.tot td{font-weight:700;background:#f7fafc;border-bottom:none}
+h2{font-size:14px;margin:26px 0 9px;letter-spacing:.2px}
+h2 span{font-weight:400;color:var(--mut);font-size:12.5px}
+footer{font-size:11.5px;color:var(--mut);margin-top:26px;line-height:1.6;border-top:1px solid var(--edge);padding-top:14px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.kpis{grid-template-columns:repeat(2,1fr)}.card{flex-direction:column}.thumb{flex:0 0 auto;width:178px}}
+</style>
 <header>
-  <div><h1>Pure Southern Water &amp; Air</h1><div class="sub">Ad revenue attribution - which creative actually produced revenue</div></div>
-  <div class="right"><b id="hr">Last 90 days</b>Parrottino Digital<br>Generated Sep 18, 2026</div>
+  <h1>Pure Southern Water &amp; Air <span style="font-weight:400;opacity:.85">| Ad Revenue Attribution</span></h1>
+  <div class="r"><div><b>Parrottino Digital</b></div><div id="hdr"></div></div>
 </header>
 <div class="wrap">
   <div class="ranges" id="ranges"></div>
   <div class="kpis" id="kpis"></div>
   <div class="note" id="note"></div>
   <div class="bar">
-    <label for="sortsel">Sort by</label>
-    <select id="sortsel">
-      <option value="4">Closed revenue</option>
-      <option value="5">Spend in window</option>
-      <option value="6">Purchases</option>
+    <label for="sort">Sort by</label>
+    <select id="sort">
+      <option value="closed">Closed revenue</option>
+      <option value="spend">Spend in window</option>
+      <option value="purchases">Purchases</option>
       <option value="roas">Return on ad spend</option>
-      <option value="7">Revenue potential</option>
-      <option value="roasp">ROAS potential</option>
+      <option value="potential">Revenue potential</option>
+      <option value="roaspot">ROAS potential</option>
     </select>
-    <div class="tog"><button id="bCards" class="on">Creative</button><button id="bTable">Table</button></div>
+    <span class="tog"><button id="bCards" class="on">Creative</button><button id="bTable">Table</button></span>
   </div>
   <div id="cards"></div>
-  <div id="table" class="hide"></div>
-  <h2>Revenue not attributable to an ad</h2>
-  <div class="nonad" id="nonad"></div>
+  <div id="table" style="display:none"></div>
+  <h2 id="nonH">Revenue not attributable to an ad</h2>
+  <div id="non"></div>
   <footer id="foot"></footer>
 </div>
-<script>
-const D = {"28":{"label":"Last 28 days","dates":"Aug 21 - Sep 17, 2026","ads":[["120249156975270207","Breaking News – 700+ Rated 5.0","8/5/26 - PD - Creative Testing – Static Ads - TN",1,4400,3367.53,1,8022.95,"",0],["120249156918540207","Sorry – 06 – The Test Is Free","8/5/26 - PD - Creative Testing – Static Ads - TN",1,5564.26,600.63,1,5564.26,"",0],["120241399544170207","Ad 08 Problem-Solution-Driven - Video - Marla Buildup","7/13/26 - PD  - ALL",1,5034,278.05,1,5034,"",0],["120248875348500207","7/24 /26 - Video (Influencer NashvilleGirlie + Partnership Ad","7/13/26 - PD  - ALL",1,0,4968.07,1,12966.64,"",0],["120239930226860207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom","7/13/26 - PD  - ALL",1,0,1112.76,0,8450,"",0],["120239844794490207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD  - ALL",1,0,4455.02,1,28937.37,"",0],["120239931794890207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom KY","7/13/26 - PD  - ALL",1,0,1073.61,0,13338.33,"",0],["120249243108260207","8.9.26 (Video - Dustin Alabama) - LP","7/13/26 - PD  - ALL",1,4434,2579.09,2,11417.5,"2 ads share this name, spend summed",2],["120239844325680207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons – Softener TN","7/13/26 - PD  - ALL",1,14481.29,2522.89,4,22611.29,"",0],["120239845676670207","Ad 03 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD  - ALL",1,0,1039.8,0,3952.96,"",0],["120239845929490207","Ad 05 Problem-Solution-Driven - Video - Top 3 Reasons – Softener AL B+","7/13/26 - PD  - ALL",1,6049,887.81,1,6049,"",0],["120239930226850207","Ad 08 Problem-Solution-Driven - Video-Customer Testimonial","7/13/26 - PD  - ALL",1,2648,76.99,1,2648,"",0],["120248732308170207","Video Ad  (Water Test) - LP","7/1/26 - PD - Tennessee",1,9683,19.75,2,9683,"",0],["120248485183200207","Video Ad 2 (Top 3 Reasons + offer) - LP","7/1/26 - PD - Tennessee",1,0,296.9,1,1399,"",0],["120246003858180207","Softener Static Image 2","7/16/26 - PD - TOF Tennessee",1,0,0.0,1,5334,"",0]],"nonad":[["Instagram bio link",6761.06,6761.06,1,"link_in_bio is Instagram bio-link traffic, not an ad"]],"closed":59054.61,"pot":152169.36,"pc":18,"sold":19501.0,"spend":23278.9,"match":88.6,"unmatched_closed":0,"unmatched_pot":0,"nonad_closed":6761.06},"90":{"label":"Last 90 days","dates":"Jun 20 - Sep 17, 2026","ads":[["120239845676670207","Ad 03 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD  - ALL",1,0,5135.83,0,8297.63,"",0],["120246092374100207","Drake PFAS Video Parntership","7/13/26 - PD - TOF Alabama",1,10500,488.95,1,10500,"",0],["120248610503530207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD - TOF Alabama",1,3500,1386.49,2,22067.5,"",0],["120246011541830207","Drake PFAS Video","7/13/26 - PD - TOF Alabama",1,0,3046.13,0,5050,"2 ads share this name, spend summed",2],["120246008630040207","Softener Static Image","7/13/26 - PD - TOF Alabama",1,0,1473.16,0,12607,"",0],["120249156975270207","Breaking News – 700+ Rated 5.0","8/5/26 - PD - Creative Testing – Static Ads - TN",1,6198,4644.1,2,14255.95,"",0],["120249156918540207","Sorry – 06 – The Test Is Free","8/5/26 - PD - Creative Testing – Static Ads - TN",1,5564.26,1538.29,1,8763.26,"",0],["120248875460590207","Video (Influencer - NashvilleGirlie) -LP","7/7/26 - PD - Tennessee - Offer - 300 Off - Franklin",1,0,771.09,0,5457.27,"",0],["120248732308170207","Video Ad  (Water Test) - LP","7/1/26 - PD - Tennessee",1,9683,409.16,2,9683,"",0],["120248485183200207","Video Ad 2 (Top 3 Reasons + offer) - LP","7/1/26 - PD - Tennessee",1,1499,5203.69,2,24482.43,"",0],["120248200883830207","Video Ad 1 (Drake offer) - LP","7/1/26 - PD - Tennessee",1,0,586.2,0,5355.67,"",0],["120248729476860207","Winner + Offer - Problem-Solution-Driven - Video-Dustin Showroom","7/1/26 - PD - Tennessee",1,0,456.98,0,3835,"",0],["120248485123490207","Video (Partnership Ad) - LP","7/8/26 - PD - Tennessee - Influencer Video",1,0,528.49,1,4348,"",0],["120234908619120207","Hannah & Dustin Comment","Matyx - (Schedule Appointment Lead) TOF - Customer Video Campaigns",1,0,21.63,0,3835.27,"",0],["120246003858180207","Softener Static Image 2","7/16/26 - PD - TOF Tennessee",1,7365.03,3118.64,4,17671.03,"",0],["120246009947930207","Sanda & Carson Video","7/16/26 - PD - TOF Tennessee",1,2397.03,3675.13,2,2397.03,"",0],["120246002476610207","Softener Static Image","7/16/26 - PD - TOF Tennessee",1,13781.5,366.65,3,13781.5,"",0],["120241128960630207","Ad 10 Problem-Solution-Driven - Video-AI Knows Ball","7/13/26 - PD  - ALL",1,7954.59,1490.58,2,7954.59,"",0],["120239844325680207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons – Softener TN","7/13/26 - PD  - ALL",1,30204.71,6334.71,7,48084.21,"",0],["120239930226870207","Ad 07 Problem-Solution-Driven - Video-David Water Heater Buildup","7/13/26 - PD  - ALL",1,0,627.79,0,9148.9,"",0],["120247804098470207","A/B Test - Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons – Filter KY","7/13/26 - PD  - ALL",1,0,5376.02,0,16172,"",0],["120239844794490207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD  - ALL",1,0,12298.15,2,58780.87,"",0],["120239931794890207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom KY","7/13/26 - PD  - ALL",1,0,2019.09,0,13338.33,"",0],["120249243108260207","8.9.26 (Video - Dustin Alabama) - LP","7/13/26 - PD  - ALL",1,7934,5070.85,3,38060.84,"2 ads share this name, spend summed",2],["120248875348500207","7/24 /26 - Video (Influencer NashvilleGirlie + Partnership Ad","7/13/26 - PD  - ALL",1,0,5577.53,1,12966.64,"",0],["120239844325690207","Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons – Filter TN V1","7/13/26 - PD  - ALL",1,0,0.0,2,9552,"",0],["120241399544170207","Ad 08 Problem-Solution-Driven - Video - Marla Buildup","7/13/26 - PD  - ALL",1,5034,927.75,1,9734,"",0],["120239930226860207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom","7/13/26 - PD  - ALL",1,24121.71,3684.56,4,41463.38,"",0],["120239930681380207","Ad 06 Problem-Solution-Driven - Video - David Water Heater Buildup","7/13/26 - PD  - ALL",1,4200,93.0,1,4200,"",0],["120248485260770207","Ad 1 (Us vs Them) - Quad Pro - LP - Copy","7/13/26 - PD  - ALL",1,4049,1531.49,1,4049,"",0],["120239845929490207","Ad 05 Problem-Solution-Driven - Video - Top 3 Reasons – Softener AL B+","7/13/26 - PD  - ALL",1,6049,2174.21,1,9498.5,"",0],["120249106530250207","8.2.26 - Still (Breaking News) - LP","7/13/26 - PD  - ALL",1,0,201.06,0,4269.97,"",0],["120239930226850207","Ad 08 Problem-Solution-Driven - Video-Customer Testimonial","7/13/26 - PD  - ALL",1,2648,429.27,1,2648,"",0]],"nonad":[["Instagram bio link",13829.06,22983.06,3,"link_in_bio is Instagram bio-link traffic, not an ad"],["Unattributed",0,4249.5,0,"Searchlight rows carrying no utm_content, so no ad can be identified"]],"closed":166511.89,"pot":489541.33,"pc":49,"sold":40750.5,"spend":80686.67,"match":91.7,"unmatched_closed":0,"unmatched_pot":0,"nonad_closed":13829.06},"ytd":{"label":"Year to date","dates":"Jan 1 - Sep 17, 2026","ads":[["120239844325690207","Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons – Filter TN V1","7/13/26 - PD  - ALL",1,34872.76,16279.15,12,154090.74,"",0],["120239844325680207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons – Softener TN","7/13/26 - PD  - ALL",1,52693.3,17359.05,10,122526.65,"",0],["120239930226850207","Ad 08 Problem-Solution-Driven - Video-Customer Testimonial","7/13/26 - PD  - ALL",1,6148,2848.2,2,19127,"",0],["120241399577800207","Ad 11 Problem-Solution-Driven - Video-Marla Buildup","7/13/26 - PD  - ALL",1,5145.23,3987.58,1,10198.73,"",0],["120239845676670207","Ad 03 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD  - ALL",1,0,13615.13,0,28985.63,"",0],["120234908619120207","Hannah & Dustin Comment","Matyx - (Schedule Appointment Lead) TOF - Customer Video Campaigns",1,20025.92,6050.53,3,23861.19,"",0],["120234200784790207","Drake & Dustin Photo - TN","Matyx - (Schedule Appointment Lead) TOF - Customer Video Campaigns",1,3763.06,21047.49,1,26419.53,"2 ads share this name, spend summed",2],["120249156975270207","Breaking News – 700+ Rated 5.0","8/5/26 - PD - Creative Testing – Static Ads - TN",1,6198,4644.1,2,14255.95,"",0],["120249156918540207","Sorry – 06 – The Test Is Free","8/5/26 - PD - Creative Testing – Static Ads - TN",1,5564.26,1538.29,1,8763.26,"",0],["120246002476610207","Softener Static Image","7/16/26 - PD - TOF Tennessee",1,13781.5,483.36,3,13781.5,"",0],["120246003858180207","Softener Static Image 2","7/16/26 - PD - TOF Tennessee",1,8964.03,5518.37,5,24773.53,"",0],["120246009947930207","Sanda & Carson Video","7/16/26 - PD - TOF Tennessee",1,7687.76,5923.77,3,7687.76,"",0],["120237787089260207","Beckham TN","7/16/26 - PD - TOF Tennessee",1,3300,6648.64,1,6550,"",0],["120246011541830207","Drake PFAS Video","7/13/26 - PD - TOF Alabama",1,0,7238.19,0,13333.53,"2 ads share this name, spend summed",2],["120246010037260207","Sanda & Carson Video - Copy","7/13/26 - PD - TOF Alabama",1,0,1099.84,0,6674,"",0],["120246008630040207","Softener Static Image","7/13/26 - PD - TOF Alabama",1,0,2284.58,0,12607,"",0],["120248610503530207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD - TOF Alabama",1,3500,1386.49,2,22067.5,"",0],["120246092374100207","Drake PFAS Video Parntership","7/13/26 - PD - TOF Alabama",1,10500,1284.12,1,10500,"",0],["120248875460590207","Video (Influencer - NashvilleGirlie) -LP","7/7/26 - PD - Tennessee - Offer - 300 Off - Franklin",1,0,771.09,0,5457.27,"",0],["120248732308170207","Video Ad  (Water Test) - LP","7/1/26 - PD - Tennessee",1,9683,409.16,2,9683,"",0],["120248485183200207","Video Ad 2 (Top 3 Reasons + offer) - LP","7/1/26 - PD - Tennessee",1,1499,5203.69,2,24482.43,"",0],["120248200883830207","Video Ad 1 (Drake offer) - LP","7/1/26 - PD - Tennessee",1,0,586.2,0,5355.67,"",0],["120248729476860207","Winner + Offer - Problem-Solution-Driven - Video-Dustin Showroom","7/1/26 - PD - Tennessee",1,0,456.98,0,3835,"",0],["120248485123490207","Video (Partnership Ad) - LP","7/8/26 - PD - Tennessee - Influencer Video",1,0,528.49,1,4348,"",0],["120239931794890207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom KY","7/13/26 - PD  - ALL",1,6481.26,3225.48,1,19819.59,"",0],["120241128960630207","Ad 10 Problem-Solution-Driven - Video-AI Knows Ball","7/13/26 - PD  - ALL",1,12054.59,2948.82,3,12054.59,"",0],["120239844794490207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons – Filter AL","7/13/26 - PD  - ALL",1,18699.81,28089.33,5,162583.33,"",0],["120239407409830207","Ad 03 Problem-Solution-Driven - Video-PopUpDavid","7/13/26 - PD  - ALL",1,0,737.28,0,14124.06,"",0],["120239407610840207","Ad 03 Problem-Solution-Driven - Video - NY-Special-David","7/13/26 - PD  - ALL",1,0,326.11,0,7008.5,"",0],["120239930226860207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom","7/13/26 - PD  - ALL",1,24121.71,5884.12,4,50590.88,"",0],[null,"Ad 01 Problem-Solution-Driven - Video-DrakeTN-Curious - Copy","7/13/26 - PD  - ALL",0,0,null,0,2849,"no live ad with this name, likely renamed or deleted",0],[null,"Ad 01 Problem-Solution-Driven","7/13/26 - PD  - ALL",0,7607,null,2,17870.71,"no live ad with this name, likely renamed or deleted",0],["120239930681380207","Ad 06 Problem-Solution-Driven - Video - David Water Heater Buildup","7/13/26 - PD  - ALL",1,4200,943.72,1,15180.03,"",0],["120239930226870207","Ad 07 Problem-Solution-Driven - Video-David Water Heater Buildup","7/13/26 - PD  - ALL",1,0,1116.41,0,9148.9,"",0],["120247804098470207","A/B Test - Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons – Filter KY","7/13/26 - PD  - ALL",1,0,5376.02,0,16172,"",0],["120249243108260207","8.9.26 (Video - Dustin Alabama) - LP","7/13/26 - PD  - ALL",1,7934,5070.85,3,38060.84,"2 ads share this name, spend summed",2],["120241399544170207","Ad 08 Problem-Solution-Driven - Video - Marla Buildup","7/13/26 - PD  - ALL",1,5034,1633.96,1,14965.03,"",0],["120248875348500207","7/24 /26 - Video (Influencer NashvilleGirlie + Partnership Ad","7/13/26 - PD  - ALL",1,0,5577.53,1,12966.64,"",0],["120239845929490207","Ad 05 Problem-Solution-Driven - Video - Top 3 Reasons – Softener AL B+","7/13/26 - PD  - ALL",1,9773,8274.67,2,31373.5,"",0],["120239931794910207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons – Softener KY","7/13/26 - PD  - ALL",1,0,1086.6,0,3749,"",0],["120241130934800207","Ad 06 Problem-Solution-Driven - Video - AI Knows Ball","7/13/26 - PD  - ALL",1,0,643.73,0,7659.03,"",0],[null,"Ad 01 Problem-Solution-Driven - Video - Top 3 Reasons – Softener AL","7/13/26 - PD  - ALL",0,3831.5,null,1,10451.56,"no live ad with this name, likely renamed or deleted",0],["120248485260770207","Ad 1 (Us vs Them) - Quad Pro - LP - Copy","7/13/26 - PD  - ALL",1,4049,1531.49,1,4049,"",0],["120249106530250207","8.2.26 - Still (Breaking News) - LP","7/13/26 - PD  - ALL",1,0,201.06,0,4269.97,"",0],[null,"Ad 10 Problem-Solution-Driven - Video-Marla Buildup","7/13/26 - PD  - ALL",0,4785.26,null,1,4785.26,"no live ad with this name, likely renamed or deleted",0],["120236830747450207","Ad 01 Problem-Solution-Driven - Video-DrakeTN-Curious","7/13/26 - PD  - ALL",1,5619.03,1639.37,1,5619.03,"",0],["120235500535710207","Elyse Son Health Issues Full -Alabama","Alabama TOP Campaign",1,5938.06,2754.99,2,31833.09,"",0]],"nonad":[["Instagram bio link",13829.06,33083.64,3,"link_in_bio is Instagram bio-link traffic, not an ad"],["Unattributed",2954,16951.53,2,"Searchlight rows carrying no utm_content, so no ad can be identified"]],"closed":330237.1,"pot":1126583.58,"pc":86,"sold":67751.05,"spend":204254.03,"match":90.0,"unmatched_closed":16223.76,"unmatched_pot":35956.53,"nonad_closed":16783.06}};
 
-var RK=['28','90','ytd'], cur='90', sortKey='4', sortDir=-1, view='cards';
-function money(v){ if(v===null||v===undefined) return 'n/a';
-  return '$'+Math.round(v).toLocaleString('en-US'); }
-function roas(c,s){ if(s===null||s===undefined||s===0) return null; return c/s; }
-function rx(v){ return v===null?'n/a':v.toFixed(2)+'x'; }
-function val(a,k){
-  if(k==='roas') return roas(a[4],a[5]);
-  if(k==='roasp') return roas(a[7],a[5]);
-  return a[k];
-}
-function sorted(){
-  var ads=D[cur].ads.slice();
-  ads.sort(function(x,y){
-    var a=val(x,sortKey), b=val(y,sortKey);
-    if(a===null||a===undefined)a=-1; if(b===null||b===undefined)b=-1;
-    return (a-b)*sortDir;
-  });
-  return ads;
-}
+<script>
+const D = {"28d":{"rows":[["120239844325680207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Softener TN","7/13/26 - PD  - ALL",1,14481.29,2497.66,4,22611.29,"",0,0],["120248732308170207","Video Ad  (Water Test) - LP","7/1/26 - PD - Tennessee",1,9683.0,6.64,2,9683.0,"",0,0],["120239845929490207","Ad 05 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Softener AL B+","7/13/26 - PD  - ALL",1,6049.0,1050.07,1,6049.0,"",0,0],["120249156918540207","Sorry \u2013 06 \u2013 The Test Is Free","8/5/26 - PD - Creative Testing \u2013 Static Ads - TN",1,5564.26,599.46,1,5564.26,"",0,0],["120241399544170207","Ad 08 Problem-Solution-Driven - Video - Marla Buildup","7/13/26 - PD  - ALL",1,5034.0,260.03,1,5034.0,"",0,0],["120249243108260207","8.9.26 (Video - Dustin Alabama) - LP","7/13/26 - PD  - ALL",1,4534.0,2513.85,1,6983.5,"2 ads share this name, spend summed",2,0],["120249156975270207","Breaking News \u2013 700+ Rated 5.0","8/5/26 - PD - Creative Testing \u2013 Static Ads - TN",1,4400.0,3270.31,1,8022.95,"",0,0],["120248875348500207","7/24 /26 - Video (Influencer NashvilleGirlie + Partnership Ad","7/13/26 - PD  - ALL",1,1299.0,5603.86,3,19237.44,"",0,0],["120239844794490207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD  - ALL",1,0.0,4943.31,1,31743.87,"",0,0],["120239931794890207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom KY","7/13/26 - PD  - ALL",1,0.0,1106.08,0,13338.33,"",0,0],["120239930226860207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom","7/13/26 - PD  - ALL",1,0.0,1079.97,0,8450.0,"",0,0],["120239845676670207","Ad 03 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD  - ALL",1,0.0,1017.47,0,3952.96,"",0,0],["120249437563850207","8.17.26 - Drake PFAS Video Parntership","7/13/26 - PD  - ALL",1,0.0,936.0,0,1454.03,"",0,1],["120248485183200207","Video Ad 2 (Top 3 Reasons + offer) - LP","7/1/26 - PD - Tennessee",1,0.0,87.8,1,1399.0,"",0,0],["120246003858180207","Softener Static Image 2","7/16/26 - PD - TOF Tennessee",1,0.0,0.0,1,5334.0,"",0,0]],"non":[["link_in_bio",6761.06,6761.06,1]],"tot":{"closed":57805.61,"potential":155618.7,"purchases":18,"sold":16966.0,"spend":24972.51,"slSpend":32099.36},"meta":{"matchRate":100.0,"unmatchedClosed":0,"nonAdClosed":6761.06,"start":"2026-08-23","end":"2026-09-19"}},"90d":{"rows":[["120239844325680207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Softener TN","7/13/26 - PD  - ALL",1,30204.71,5869.48,7,48084.21,"",0,0],["120239930226860207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom","7/13/26 - PD  - ALL",1,24121.71,3667.66,4,41463.38,"",0,0],["120246002476610207","Softener Static Image","7/16/26 - PD - TOF Tennessee",1,13781.5,355.93,3,13781.5,"",0,0],["120249243108260207","8.9.26 (Video - Dustin Alabama) - LP","7/13/26 - PD  - ALL",1,12468.0,5179.83,3,38060.84,"2 ads share this name, spend summed",2,0],["120246092374100207","Drake PFAS Video Parntership","7/13/26 - PD - TOF Alabama",1,10500.0,485.03,1,10500.0,"",0,0],["120248732308170207","Video Ad  (Water Test) - LP","7/1/26 - PD - Tennessee",1,9683.0,409.16,2,9683.0,"",0,0],["120241128960630207","Ad 10 Problem-Solution-Driven - Video-AI Knows Ball","7/13/26 - PD  - ALL",1,7954.59,1453.62,2,7954.59,"",0,0],["120246003858180207","Softener Static Image 2","7/16/26 - PD - TOF Tennessee",1,7365.03,2815.33,4,17671.03,"",0,0],["120249156975270207","Breaking News \u2013 700+ Rated 5.0","8/5/26 - PD - Creative Testing \u2013 Static Ads - TN",1,6198.0,4816.61,2,14255.95,"",0,0],["120239845929490207","Ad 05 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Softener AL B+","7/13/26 - PD  - ALL",1,6049.0,2363.49,1,9498.5,"",0,0],["120249156918540207","Sorry \u2013 06 \u2013 The Test Is Free","8/5/26 - PD - Creative Testing \u2013 Static Ads - TN",1,5564.26,1569.01,1,8763.26,"",0,0],["120241399544170207","Ad 08 Problem-Solution-Driven - Video - Marla Buildup","7/13/26 - PD  - ALL",1,5034.0,941.36,1,9734.0,"",0,0],["120239930681380207","Ad 06 Problem-Solution-Driven - Video - David Water Heater Buildup","7/13/26 - PD  - ALL",1,4200.0,95.34,1,4200.0,"",0,0],["120248485260770207","Ad 1 (Us vs Them) - Quad Pro - LP - Copy","7/13/26 - PD  - ALL",1,4049.0,1607.81,1,4049.0,"",0,0],["120248610503530207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD - TOF Alabama",1,3500.0,1386.49,2,22067.5,"",0,0],["120239930226850207","Ad 08 Problem-Solution-Driven - Video-Customer Testimonial","7/13/26 - PD  - ALL",1,2648.0,392.86,1,2648.0,"",0,0],["120246009947930207","Sanda & Carson Video","7/16/26 - PD - TOF Tennessee",1,2397.03,3374.89,2,2397.03,"",0,0],["120248485183200207","Video Ad 2 (Top 3 Reasons + offer) - LP","7/1/26 - PD - Tennessee",1,1499.0,5203.69,2,24482.43,"",0,0],["120248875348500207","7/24 /26 - Video (Influencer NashvilleGirlie + Partnership Ad","7/13/26 - PD  - ALL",1,1299.0,6341.12,3,19237.44,"",0,0],["120246011541830207","Drake PFAS Video","7/13/26 - PD - TOF Alabama",1,0.0,2445.49,0,5050.0,"2 ads share this name, spend summed",2,0],["120246008630040207","Softener Static Image","7/13/26 - PD - TOF Alabama",1,0.0,1209.03,0,12607.0,"",0,0],["120248875460590207","Video (Influencer - NashvilleGirlie) -LP","7/7/26 - PD - Tennessee - Offer - 300 Off - Franklin",1,0.0,771.09,0,5457.27,"",0,0],["120248200883830207","Video Ad 1 (Drake offer) - LP","7/1/26 - PD - Tennessee",1,0.0,586.2,0,5355.67,"",0,0],["120248729476860207","Winner + Offer - Problem-Solution-Driven - Video-Dustin Showroom","7/1/26 - PD - Tennessee",1,0.0,456.98,0,3835.0,"",0,0],["120248485123490207","Video (Partnership Ad) - LP","7/8/26 - PD - Tennessee - Influencer Video",1,0.0,528.49,1,4348.0,"",0,0],["120234908619120207","Hannah & Dustin Comment","Matyx - (Schedule Appointment Lead) TOF - Customer Video Campaigns",1,0.0,21.2,0,3835.27,"",0,0],["120239844325690207","Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Filter TN V1","7/13/26 - PD  - ALL",1,0.0,0.0,2,9552.0,"",0,0],["120239930226870207","Ad 07 Problem-Solution-Driven - Video-David Water Heater Buildup","7/13/26 - PD  - ALL",1,0.0,612.28,0,9148.9,"",0,0],["120247804098470207","A/B Test - Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Filter KY","7/13/26 - PD  - ALL",1,0.0,5376.02,0,16172.0,"",0,0],["120239844794490207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD  - ALL",1,0.0,12607.48,2,61587.37,"",0,0],["120239931794890207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom KY","7/13/26 - PD  - ALL",1,0.0,2092.69,0,13338.33,"",0,0],["120239845676670207","Ad 03 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD  - ALL",1,0.0,4879.25,0,8297.63,"",0,0],["120249437563850207","8.17.26 - Drake PFAS Video Parntership","7/13/26 - PD  - ALL",1,0.0,1376.37,0,1454.03,"",0,1],["120249106530250207","8.2.26 - Still (Breaking News) - LP","7/13/26 - PD  - ALL",1,0.0,201.06,0,4269.97,"",0,0]],"non":[["link_in_bio",13829.06,22983.06,3],["[Unattributed Spend]",0,4249.5,0]],"tot":{"closed":172344.89,"potential":500072.65,"purchases":51,"sold":38215.5,"spend":81492.34,"slSpend":109622.24},"meta":{"matchRate":100.0,"unmatchedClosed":0,"nonAdClosed":13829.06,"start":"2026-06-22","end":"2026-09-19"}},"ytd":{"rows":[["120239844325680207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Softener TN","7/13/26 - PD  - ALL",1,52693.3,17479.61,10,122526.65,"",0,0],["120239844325690207","Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Filter TN V1","7/13/26 - PD  - ALL",1,34872.76,16279.15,12,154090.74,"",0,0],["120239930226860207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom","7/13/26 - PD  - ALL",1,24121.71,5922.08,4,50590.88,"",0,0],["120234908619120207","Hannah & Dustin Comment","Matyx - (Schedule Appointment Lead) TOF - Customer Video Campaigns",1,20025.92,6050.53,3,23861.19,"",0,0],["120239844794490207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD  - ALL",1,18699.81,28760.78,5,165389.83,"",0,0],["120246002476610207","Softener Static Image","7/16/26 - PD - TOF Tennessee",1,13781.5,483.36,3,13781.5,"",0,0],["120249243108260207","8.9.26 (Video - Dustin Alabama) - LP","7/13/26 - PD  - ALL",1,12468.0,5179.83,3,38060.84,"2 ads share this name, spend summed",2,0],["120241128960630207","Ad 10 Problem-Solution-Driven - Video-AI Knows Ball","7/13/26 - PD  - ALL",1,12054.59,2958.87,3,12054.59,"",0,0],["120246092374100207","Drake PFAS Video Parntership","7/13/26 - PD - TOF Alabama",1,10500.0,1284.12,1,10500.0,"",0,0],["120239845929490207","Ad 05 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Softener AL B+","7/13/26 - PD  - ALL",1,9773.0,8480.17,2,31373.5,"",0,0],["120248732308170207","Video Ad  (Water Test) - LP","7/1/26 - PD - Tennessee",1,9683.0,409.16,2,9683.0,"",0,0],["120246003858180207","Softener Static Image 2","7/16/26 - PD - TOF Tennessee",1,8964.03,5518.37,5,24773.53,"",0,0],["120246009947930207","Sanda & Carson Video","7/16/26 - PD - TOF Tennessee",1,7687.76,5923.77,3,7687.76,"",0,0],[null,"Ad 01 Problem-Solution-Driven","7/13/26 - PD  - ALL",0,7607.0,null,2,17870.71,"no live ad with this name, likely renamed or deleted",0,0],["120239931794890207","Ad 09 Problem-Solution-Driven - Video-Dustin Showroom KY","7/13/26 - PD  - ALL",1,6481.26,3305.09,1,19819.59,"",0,0],["120249156975270207","Breaking News \u2013 700+ Rated 5.0","8/5/26 - PD - Creative Testing \u2013 Static Ads - TN",1,6198.0,4816.61,2,14255.95,"",0,0],["120239930226850207","Ad 08 Problem-Solution-Driven - Video-Customer Testimonial","7/13/26 - PD  - ALL",1,6148.0,2859.3,2,19127.0,"",0,0],["120235500535710207","Elyse Son Health Issues Full -Alabama","Alabama TOP Campaign",1,5938.06,2754.99,2,31833.09,"",0,0],["120236830747450207","Ad 01 Problem-Solution-Driven - Video-DrakeTN-Curious","7/13/26 - PD  - ALL",1,5619.03,1642.28,1,5619.03,"",0,0],["120249156918540207","Sorry \u2013 06 \u2013 The Test Is Free","8/5/26 - PD - Creative Testing \u2013 Static Ads - TN",1,5564.26,1569.01,1,8763.26,"",0,0],["120241399577800207","Ad 11 Problem-Solution-Driven - Video-Marla Buildup","7/13/26 - PD  - ALL",1,5145.23,3987.58,1,10198.73,"",0,0],["120241399544170207","Ad 08 Problem-Solution-Driven - Video - Marla Buildup","7/13/26 - PD  - ALL",1,5034.0,1647.59,1,14965.03,"",0,0],[null,"Ad 10 Problem-Solution-Driven - Video-Marla Buildup","7/13/26 - PD  - ALL",0,4785.26,null,1,4785.26,"no live ad with this name, likely renamed or deleted",0,0],["120239930681380207","Ad 06 Problem-Solution-Driven - Video - David Water Heater Buildup","7/13/26 - PD  - ALL",1,4200.0,946.06,1,15180.03,"",0,0],["120248485260770207","Ad 1 (Us vs Them) - Quad Pro - LP - Copy","7/13/26 - PD  - ALL",1,4049.0,1607.81,1,4049.0,"",0,0],[null,"Ad 01 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Softener AL","7/13/26 - PD  - ALL",0,3831.5,null,1,10451.56,"no live ad with this name, likely renamed or deleted",0,0],["120234200784790207","Drake & Dustin Photo - TN","Matyx - (Schedule Appointment Lead) TOF - Customer Video Campaigns",1,3763.06,21047.49,1,26419.53,"2 ads share this name, spend summed",2,0],["120248610503530207","Ad 04 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD - TOF Alabama",1,3500.0,1386.49,2,22067.5,"",0,0],["120237787089260207","Beckham TN","7/16/26 - PD - TOF Tennessee",1,3300.0,6648.64,1,6550.0,"",0,0],["120248485183200207","Video Ad 2 (Top 3 Reasons + offer) - LP","7/1/26 - PD - Tennessee",1,1499.0,5203.69,2,24482.43,"",0,0],["120248875348500207","7/24 /26 - Video (Influencer NashvilleGirlie + Partnership Ad","7/13/26 - PD  - ALL",1,1299.0,6341.11,3,19237.44,"",0,0],["120246011541830207","Drake PFAS Video","7/13/26 - PD - TOF Alabama",1,0.0,7238.19,0,13333.53,"2 ads share this name, spend summed",2,0],["120246010037260207","Sanda & Carson Video - Copy","7/13/26 - PD - TOF Alabama",1,0.0,1099.84,0,6674.0,"",0,0],["120246008630040207","Softener Static Image","7/13/26 - PD - TOF Alabama",1,0.0,2284.58,0,12607.0,"",0,0],["120248875460590207","Video (Influencer - NashvilleGirlie) -LP","7/7/26 - PD - Tennessee - Offer - 300 Off - Franklin",1,0.0,771.09,0,5457.27,"",0,0],["120248200883830207","Video Ad 1 (Drake offer) - LP","7/1/26 - PD - Tennessee",1,0.0,586.2,0,5355.67,"",0,0],["120248729476860207","Winner + Offer - Problem-Solution-Driven - Video-Dustin Showroom","7/1/26 - PD - Tennessee",1,0.0,456.98,0,3835.0,"",0,0],["120248485123490207","Video (Partnership Ad) - LP","7/8/26 - PD - Tennessee - Influencer Video",1,0.0,528.49,1,4348.0,"",0,0],["120239845676670207","Ad 03 Problem-Solution-Driven - Video - Top 3 Reasons \u2013 Filter AL","7/13/26 - PD  - ALL",1,0.0,13645.81,0,28985.63,"",0,0],["120239407409830207","Ad 03 Problem-Solution-Driven - Video-PopUpDavid","7/13/26 - PD  - ALL",1,0.0,738.52,0,14124.06,"",0,0],["120239931794910207","Ad 06 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Softener KY","7/13/26 - PD  - ALL",1,0.0,1098.14,0,3749.0,"",0,0],["120241130934800207","Ad 06 Problem-Solution-Driven - Video - AI Knows Ball","7/13/26 - PD  - ALL",1,0.0,645.98,0,7659.03,"",0,0],["120239930226870207","Ad 07 Problem-Solution-Driven - Video-David Water Heater Buildup","7/13/26 - PD  - ALL",1,0.0,1116.41,0,9148.9,"",0,0],["120247804098470207","A/B Test - Ad 05 Problem-Solution-Driven - Video-Top 3 Reasons \u2013 Filter KY","7/13/26 - PD  - ALL",1,0.0,5376.02,0,16172.0,"",0,0],["120249106530250207","8.2.26 - Still (Breaking News) - LP","7/13/26 - PD  - ALL",1,0.0,201.06,0,4269.97,"",0,0],["120249437563850207","8.17.26 - Drake PFAS Video Parntership","7/13/26 - PD  - ALL",1,0.0,1376.37,0,1454.03,"",0,1],["120239407610840207","Ad 03 Problem-Solution-Driven - Video - NY-Special-David","7/13/26 - PD  - ALL",1,0.0,326.11,0,7008.5,"",0,0],[null,"Ad 01 Problem-Solution-Driven - Video-DrakeTN-Curious - Copy","7/13/26 - PD  - ALL",0,0.0,null,0,2849.0,"no live ad with this name, likely renamed or deleted",0,0]],"non":[["link_in_bio",13829.06,33083.64,3],["[Unattributed Spend]",2954,16951.53,2]],"tot":{"closed":336070.1,"potential":1137114.86,"purchases":88,"sold":65216.05,"spend":207983.33,"slSpend":227798.98},"meta":{"matchRate":94.9,"unmatchedClosed":16223.76,"nonAdClosed":16783.06,"start":"2026-01-01","end":"2026-09-19"}}};
+var GEN="September 20, 2026";
+var LBL={"28d":"Last 28 days","90d":"Last 90 days","ytd":"Year to date"};
+var CROP={0:{w:998,l:-410,t:-4},1:{w:748,l:-285,t:-3}};
+var cur="90d", sortKey="closed", sortDir=-1, view="cards";
+function money(v){if(v===null||v===undefined)return"n/a";
+  return "$"+Number(v).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
+function money0(v){if(v===null||v===undefined)return"n/a";
+  return "$"+Math.round(Number(v)).toLocaleString("en-US");}
+function roas(rev,sp){if(sp===null||sp===undefined||sp===0)return null;return rev/sp;}
+function roasTxt(r){return r===null?"n/a":r.toFixed(2)+"x";}
+function rowsOf(k){return D[k].rows.map(function(a){
+  var o={adId:a[0],name:a[1],camp:a[2],matched:!!a[3],closed:a[4],spend:a[5],
+         purchases:a[6],potential:a[7],why:a[8],merged:a[9],geo:a[10]};
+  o.roas=roas(o.closed,o.spend); o.roaspot=roas(o.potential,o.spend); return o;});}
+function val(o,k){return k==="roas"||k==="roaspot"?(o[k]===null?-1:o[k]):(o[k]===null?-1:o[k]);}
+function sorted(k){var r=rowsOf(k);
+  r.sort(function(a,b){var d=val(a,sortKey)-val(b,sortKey);
+    if(d!==0)return sortDir<0?-d:d; return b.closed-a.closed;});
+  return r;}
 function renderRanges(){
-  var h='';
-  RK.forEach(function(k){
-    h+='<button data-r="'+k+'" class="'+(k===cur?'on':'')+'"><b>'+D[k].label+'</b><span>'+D[k].dates+'</span></button>';
-  });
-  document.getElementById('ranges').innerHTML=h;
-  [].forEach.call(document.querySelectorAll('#ranges button'),function(b){
-    b.onclick=function(){ cur=b.getAttribute('data-r'); render(); };
-  });
+  document.getElementById("ranges").innerHTML=["28d","90d","ytd"].map(function(k){
+    return '<button data-r="'+k+'"'+(k===cur?' class="on"':'')+'><b>'+LBL[k]+
+      '</b>'+D[k].meta.start+" to "+D[k].meta.end+'</button>';}).join("");
+  Array.prototype.forEach.call(document.querySelectorAll("#ranges button"),function(b){
+    b.onclick=function(){cur=b.getAttribute("data-r");renderAll();};});
 }
 function renderKpis(){
-  var d=D[cur], r=roas(d.closed,d.spend), rp=roas(d.pot,d.spend);
-  var k=[['Closed revenue',money(d.closed),1],['Ad spend',money(d.spend),0],
-         ['ROAS closed',rx(r),0],['Purchases',String(d.pc),0],
-         ['Revenue potential',money(d.pot),0],['Sold revenue',money(d.sold),0]];
-  document.getElementById('kpis').innerHTML=k.map(function(x){
-    return '<div class="kpi'+(x[2]?' hero':'')+'"><div class="k">'+x[0]+'</div><div class="v">'+x[1]+'</div></div>';
-  }).join('');
-  document.getElementById('hr').textContent=d.label;
+  var t=D[cur].tot;
+  var k=[["Closed Revenue",money0(t.closed),1],["Ad Spend",money0(t.spend),0],
+    ["ROAS Closed",roasTxt(roas(t.closed,t.spend)),0],["Purchases",String(t.purchases),0],
+    ["Revenue Potential",money0(t.potential),0],["Sold Revenue",money0(t.sold),0]];
+  document.getElementById("kpis").innerHTML=k.map(function(x){
+    return '<div class="kpi'+(x[2]?" hero":"")+'"><div class="l">'+x[0]+'</div><div class="v">'+x[1]+'</div></div>';}).join("");
+  document.getElementById("hdr").innerHTML=LBL[cur]+" &middot; generated "+GEN;
 }
-function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function renderNote(){
-  var d=D[cur];
-  var merged=d.ads.filter(function(a){return a[9]>1;}).length;
-  var h='<b>How to read this.</b> '+d.match.toFixed(1)+'% of closed revenue in this window resolves to a specific ad. '+
-    money(d.nonad_closed)+' came through channels that are not an ad and is listed separately below'+
-    (d.unmatched_closed>0?', and '+money(d.unmatched_closed)+' carries an ad name that no longer exists in the account (renamed or deleted)':'')+'. '+
-    (merged>0?'Where '+merged+' ad name'+(merged>1?'s resolve':' resolves')+' to more than one live ad, those ads are merged into one row and their spend summed, because Searchlight cannot split revenue between identically named ads. ':'')+
-    '<br><b>Timing.</b> Revenue is credited to the date of the first click, not the date the job closed. Short windows therefore understate recently launched ads, and their ROAS can look inflated.';
-  document.getElementById('note').innerHTML=h;
+  var m=D[cur].meta,t=D[cur].tot;
+  var merged=rowsOf(cur).filter(function(r){return r.merged>1;}).length;
+  var p=[];
+  p.push("<p><b>Match rate "+m.matchRate.toFixed(1)+"%</b> of closed revenue in this window tied to a specific live ad. "+
+    money(m.nonAdClosed)+" came from traffic that is not an ad (listed below), and "+
+    money(m.unmatchedClosed)+" came from ads that no longer carry that name in the account.</p>");
+  if(merged) p.push("<p>"+merged+" row"+(merged>1?"s":"")+" cover more than one ad sharing an identical name. Searchlight cannot split revenue between identically named ads, so their spend is summed and they are shown as a single row rather than dropped.</p>");
+  p.push("<p><b>Revenue is credited to the date of the first click, not the date the job closed.</b> This window therefore understates recently launched ads, whose jobs are still open, and short-window ROAS can look inflated. Use the revenue potential column to see pipeline that has not closed yet.</p>");
+  document.getElementById("note").innerHTML=p.join("");
 }
+function bars(rs){var m=0;rs.forEach(function(r){var v=val(r,sortKey);if(v>m)m=v;});return m;}
 function renderCards(){
-  var ads=sorted(), top=null;
-  ads.forEach(function(a){ var v=val(a,sortKey); if(v!==null&&v!==undefined&&(top===null||v>top)) top=v; });
-  var h='';
-  ads.forEach(function(a,i){
-    var r=roas(a[4],a[5]), rp=roas(a[7],a[5]);
-    var img = a[0] ? '<div class="thumb"><img loading="lazy" src="'+a[0]+'.jpg" alt=""></div>'
-                   : '<div class="ph">'+esc(a[1])+'</div>';
-    var badge='';
-    if(a[9]>1) badge='<span class="badge m">'+esc(a[8])+'</span>';
-    else if(!a[3]) badge='<span class="badge u">'+esc(a[8])+'</span>';
-    var v=val(a,sortKey); var pct=(top&&v>0)?Math.max(2,Math.round(v/top*100)):0;
-    h+='<div class="card">'+img+'<div class="meta">'+
-      '<span class="rank">'+(i+1)+'</span><span class="nm">'+esc(a[1])+'</span>'+
-      '<div class="sm">'+esc(a[2])+(a[0]?' &middot; ad '+a[0]:'')+'</div>'+badge+
-      '<div class="tiles">'+
-      '<div class="tile"><div class="k">Closed revenue</div><div class="v">'+money(a[4])+'</div></div>'+
-      '<div class="tile"><div class="k">Spend</div><div class="v">'+money(a[5])+'</div></div>'+
-      '<div class="tile"><div class="k">Purchases</div><div class="v">'+a[6]+'</div></div>'+
-      '<div class="tile"><div class="k">ROAS</div><div class="v">'+rx(r)+'</div></div>'+
-      '<div class="tile"><div class="k">Revenue potential</div><div class="v">'+money(a[7])+'</div></div>'+
-      '<div class="tile"><div class="k">ROAS potential</div><div class="v">'+rx(rp)+'</div></div>'+
-      '</div><div class="prog"><i style="width:'+pct+'%"></i></div>'+
-      '</div></div>';
-  });
-  document.getElementById('cards').innerHTML=h;
+  var rs=sorted(cur),mx=bars(rs),lbl=document.getElementById("sort");
+  var sname=lbl.options[lbl.selectedIndex].text;
+  document.getElementById("cards").innerHTML=rs.map(function(r,i){
+    var c=CROP[r.geo]||CROP[0];
+    var img=r.adId?'<img src="'+r.adId+'.jpg" loading="lazy" alt="" style="width:'+c.w+'px;left:'+c.l+'px;top:'+c.t+'px">':'<div class="ph">'+esc(r.name)+'</div>';
+    var v=val(r,sortKey),pct=mx>0&&v>0?Math.round(v/mx*100):0;
+    var bad="";
+    if(r.merged>1)bad+='<span class="badge m">'+r.merged+" ads share this name, spend summed</span>";
+    if(!r.matched)bad+='<span class="badge u">'+esc(r.why)+"</span>";
+    return '<div class="card"><div class="thumb">'+img+'</div><div class="meat">'+
+      '<div class="hd"><span class="rank">#'+(i+1)+'</span><div class="nm">'+esc(r.name)+'</div></div>'+
+      '<div class="sub">'+esc(r.camp)+(r.adId?" &middot; ad "+r.adId:"")+'</div>'+bad+
+      '<div class="stats">'+
+        st("Closed revenue",money(r.closed))+st("Spend in window",money(r.spend))+st("Purchases",String(r.purchases))+
+        st("Return on ad spend",roasTxt(r.roas))+st("Revenue potential",money(r.potential))+st("ROAS potential",roasTxt(r.roaspot))+
+      '</div><div class="track"><div class="fill" style="width:'+pct+'%"></div></div>'+
+      '<div class="trackl">'+pct+"% of top ad by "+esc(sname.toLowerCase())+'</div></div></div>';}).join("");
 }
-var COLS=[['Ad','name'],['Campaign','camp'],['Closed revenue','4'],['Spend','5'],
-          ['Purchases','6'],['ROAS','roas'],['Revenue potential','7'],['ROAS potential','roasp']];
+function st(l,v){return '<div class="st"><div class="l">'+l+'</div><div class="v">'+v+'</div></div>';}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+var COLS=[["name","Ad"],["camp","Campaign"],["closed","Closed revenue"],["spend","Spend"],
+  ["purchases","Purchases"],["roas","ROAS"],["potential","Revenue potential"],["roaspot","ROAS potential"]];
 function renderTable(){
-  var ads=sorted(), d=D[cur];
-  var h='<table><thead><tr>';
-  COLS.forEach(function(c){
-    var s=(c[1]===sortKey)?' class="s"':'';
-    h+='<th'+s+' data-k="'+c[1]+'">'+c[0]+'</th>';
-  });
-  h+='</tr></thead><tbody>';
-  ads.forEach(function(a){
-    h+='<tr><td>'+esc(a[1])+(a[9]>1?' <span class="badge m">'+a[9]+' merged</span>':'')+(!a[3]?' <span class="badge u">no live ad</span>':'')+'</td>'+
-      '<td>'+esc(a[2])+'</td><td>'+money(a[4])+'</td><td>'+money(a[5])+'</td><td>'+a[6]+'</td>'+
-      '<td>'+rx(roas(a[4],a[5]))+'</td><td>'+money(a[7])+'</td><td>'+rx(roas(a[7],a[5]))+'</td></tr>';
-  });
-  var tc=0,ts=0,tp=0,tpo=0;
-  ads.forEach(function(a){ tc+=a[4]; ts+=(a[5]||0); tp+=a[6]; tpo+=a[7]; });
-  h+='<tr class="tot"><td>Total, ads only</td><td></td><td>'+money(tc)+'</td><td>'+money(ts)+'</td><td>'+tp+'</td>'+
-     '<td>'+rx(roas(tc,ts))+'</td><td>'+money(tpo)+'</td><td>'+rx(roas(tpo,ts))+'</td></tr>';
-  h+='</tbody></table>';
-  document.getElementById('table').innerHTML=h;
-  [].forEach.call(document.querySelectorAll('#table th'),function(th){
-    th.onclick=function(){
-      var k=th.getAttribute('data-k');
-      if(k==='name'||k==='camp') return;
-      if(k===sortKey) sortDir=-sortDir; else { sortKey=k; sortDir=-1; }
-      document.getElementById('sortsel').value=sortKey;
-      render();
-    };
-  });
+  var rs=sorted(cur),t=D[cur].tot;
+  var head=COLS.map(function(c){
+    var s=c[0]===sortKey?' class="s"':'';return '<th data-k="'+c[0]+'"'+s+'>'+c[1]+(c[0]===sortKey?(sortDir<0?" ▼":" ▲"):"")+'</th>';}).join("");
+  var body=rs.map(function(r){
+    var bad="";
+    if(r.merged>1)bad=' <span class="badge m">'+r.merged+" ads</span>";
+    if(!r.matched)bad=' <span class="badge u">unmatched</span>';
+    return "<tr><td>"+esc(r.name)+bad+"</td><td>"+esc(r.camp)+"</td><td>"+money(r.closed)+"</td><td>"+money(r.spend)+
+      "</td><td>"+r.purchases+"</td><td>"+roasTxt(r.roas)+"</td><td>"+money(r.potential)+"</td><td>"+roasTxt(r.roaspot)+"</td></tr>";}).join("");
+  var sc=rs.reduce(function(a,b){return a+b.closed;},0);
+  var sp=rs.reduce(function(a,b){return a+(b.spend||0);},0);
+  var pu=rs.reduce(function(a,b){return a+b.purchases;},0);
+  var po=rs.reduce(function(a,b){return a+b.potential;},0);
+  var tot="<tr class='tot'><td>Total, ads only</td><td></td><td>"+money(sc)+"</td><td>"+money(sp)+"</td><td>"+pu+
+    "</td><td>"+roasTxt(roas(sc,sp))+"</td><td>"+money(po)+"</td><td>"+roasTxt(roas(po,sp))+"</td></tr>";
+  document.getElementById("table").innerHTML="<table><thead><tr>"+head+"</tr></thead><tbody>"+body+tot+"</tbody></table>";
+  Array.prototype.forEach.call(document.querySelectorAll("#table th"),function(th){
+    th.onclick=function(){var k=th.getAttribute("data-k");
+      if(k===sortKey)sortDir=-sortDir;else{sortKey=k;sortDir=-1;}
+      document.getElementById("sort").value=(k==="name"||k==="camp")?sortKey:k;
+      renderBody();};});
 }
-function renderNonad(){
-  var d=D[cur];
-  if(!d.nonad.length){ document.getElementById('nonad').innerHTML='<div class="row"><div>No revenue outside the ad set in this window.</div></div>'; return; }
-  document.getElementById('nonad').innerHTML=d.nonad.map(function(n){
-    return '<div class="row"><div><b>'+esc(n[0])+'</b><div class="why">'+esc(n[4])+'</div></div>'+
-      '<div class="nums">Closed '+money(n[1])+'<br>Potential '+money(n[2])+'<br>Purchases '+n[3]+'</div></div>';
-  }).join('');
+function renderNon(){
+  var n=D[cur].non;
+  if(!n.length){document.getElementById("nonH").style.display="none";document.getElementById("non").innerHTML="";return;}
+  document.getElementById("nonH").style.display="";
+  document.getElementById("nonH").innerHTML="Revenue not attributable to an ad <span>these rows carry no ad creative, and are included in the window totals above</span>";
+  var why={"link_in_bio":"Instagram bio link traffic, not a paid ad placement",
+           "[Unattributed Spend]":"Searchlight rows carrying no utm_content value"};
+  document.getElementById("non").innerHTML="<table><thead><tr><th>Source</th><th>Why it has no creative</th>"+
+    "<th>Closed revenue</th><th>Revenue potential</th><th>Purchases</th></tr></thead><tbody>"+
+    n.map(function(r){return "<tr><td>"+esc(r[0])+"</td><td>"+esc(why[r[0]]||"not an ad")+"</td><td>"+
+      money(r[1])+"</td><td>"+money(r[2])+"</td><td>"+r[3]+"</td></tr>";}).join("")+"</tbody></table>";
 }
 function renderFoot(){
-  var d=D[cur];
-  document.getElementById('foot').innerHTML=
-   'Revenue, purchases and pipeline come from Searchlight (closed and completed jobs, Facebook attribution channel). Spend, ad names and creative come from Meta Ads, account 7432973210049134. '+
-   'Both ROAS columns divide by the Meta spend shown on screen, so the arithmetic is checkable. These will not tie exactly to Searchlight\'s own ROAS, which uses its internal spend allocation. '+
-   'Purchases are Searchlight paying customers, meaning closed deals, and will never match the purchase columns in Ads Manager. '+
-   'Ads appear here when they have closed revenue or open pipeline above zero, so recently launched ads with pipeline and no closed revenue yet are included on purpose. '+
-   'This page is a snapshot generated Sep 18, 2026, not a live feed.';
+  var t=D[cur].tot;
+  document.getElementById("foot").innerHTML=
+    "<p>Closed revenue, revenue potential and purchases come from Searchlight (Meta Performance By, Facebook attribution channel). Purchases are Searchlight Paying Customers, meaning closed deals, not leads. Spend, ad names and creative come from the Meta Ads API for account 7432973210049134.</p>"+
+    "<p>Both ROAS columns divide by the Meta spend shown on screen, so the arithmetic is checkable from this page. That will not tie exactly to Searchlight's own ROAS, which allocates spend internally. Searchlight reports "+money(t.slSpend)+" of spend in this window against the "+money(t.spend)+" of Meta spend attributable to the ads listed here.</p>"+
+    "<p>Meta's own purchase columns will never agree with this page: Searchlight counts closed jobs from the CRM. Creative images are rendered ad previews captured at build time. This page is a snapshot generated "+GEN+", not a live feed.</p>";
 }
-function render(){
-  renderRanges(); renderKpis(); renderNote(); renderCards(); renderTable(); renderNonad(); renderFoot();
-  document.getElementById('cards').className = view==='cards'?'':'hide';
-  document.getElementById('table').className = view==='table'?'':'hide';
-  document.getElementById('bCards').className = view==='cards'?'on':'';
-  document.getElementById('bTable').className = view==='table'?'on':'';
-}
-document.getElementById('sortsel').onchange=function(){ sortKey=this.value; sortDir=-1; render(); };
-document.getElementById('bCards').onclick=function(){ view='cards'; render(); };
-document.getElementById('bTable').onclick=function(){ view='table'; render(); };
-render();
+function renderBody(){if(view==="cards")renderCards();else renderTable();}
+function renderAll(){renderRanges();renderKpis();renderNote();renderBody();renderNon();renderFoot();}
+document.getElementById("sort").onchange=function(){sortKey=this.value;sortDir=-1;renderBody();};
+document.getElementById("bCards").onclick=function(){view="cards";this.className="on";
+  document.getElementById("bTable").className="";document.getElementById("cards").style.display="";
+  document.getElementById("table").style.display="none";renderBody();};
+document.getElementById("bTable").onclick=function(){view="table";this.className="on";
+  document.getElementById("bCards").className="";document.getElementById("cards").style.display="none";
+  document.getElementById("table").style.display="";renderBody();};
+renderAll();
 
 </script>
-</body></html>
