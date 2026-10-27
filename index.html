@@ -122,9 +122,10 @@ function fitAll(){[].forEach.call(document.querySelectorAll('.thumb img'),functi
  if(im.complete&&im.naturalWidth)fitThumb(im);
  else im.addEventListener('load',function(){fitThumb(im);},{once:true});});}
 
-var RANGE='d90', VIEW='cards', SORT=4, DESC=true;
+var RANGE='d90', VIEW='cards', SORT=5, DESC=true;
 var COLS=[{k:4,t:'Closed revenue',m:'money'},{k:5,t:'Spend in window',m:'money'},
           {k:6,t:'Purchases',m:'int'},{k:'roas',t:'Return on ad spend',m:'x'},
+          {k:'cac',t:'CAC',m:'money',asc:true},
           {k:7,t:'Revenue potential',m:'money'},{k:'roasp',t:'ROAS potential',m:'x'}];
 
 function money(n){if(n===null||n===undefined)return 'n/a';
@@ -132,12 +133,14 @@ function money(n){if(n===null||n===undefined)return 'n/a';
 function fmt(a,c){
   if(c.k==='roas'){return a[5]?(a[4]/a[5]).toFixed(2)+'x':'n/a';}
   if(c.k==='roasp'){return a[5]?(a[7]/a[5]).toFixed(2)+'x':'n/a';}
+  if(c.k==='cac'){return (a[5]&&a[6])?money(a[5]/a[6]):'n/a';}
   if(c.m==='money')return money(a[c.k]);
   return String(a[c.k]);
 }
 function val(a,c){
   if(c.k==='roas')return a[5]?a[4]/a[5]:-1;
   if(c.k==='roasp')return a[5]?a[7]/a[5]:-1;
+  if(c.k==='cac')return (a[5]&&a[6])?a[5]/a[6]:null;
   var v=a[c.k];return v===null?-1:v;
 }
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
@@ -145,15 +148,18 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 function sorted(){
   var c=COLS[SORT];
   var list=D[RANGE].ads.slice();
-  list.sort(function(a,b){var x=val(a,c),y=val(b,c);return DESC?y-x:x-y;});
+  list.sort(function(a,b){var x=val(a,c),y=val(b,c);
+    if(x===null||y===null)return (x===null)-(y===null);
+    return DESC?y-x:x-y;});
   return list;
 }
 
 function renderKPI(){
   var d=D[RANGE],k=d.kpi;
   var roas=k.spend?(k.closed/k.spend).toFixed(2)+'x':'n/a';
+  var cac=(k.spend&&k.purchases)?money(k.spend/k.purchases):'n/a';
   var t=[['Closed revenue',money(k.closed),1],['Ad spend',money(k.spend),0],
-         ['ROAS closed',roas,0],['Purchases',String(k.purchases),0],
+         ['ROAS closed',roas,0],['Purchases',String(k.purchases),0],['CAC',cac,0],
          ['Revenue potential',money(k.potential),0],['Sold revenue',money(k.sold),0]];
   return t.map(function(x){return '<div class="kpi'+(x[2]?' hero':'')+'"><div class="kl">'+x[0]+
     '</div><div class="kv">'+x[1]+'</div></div>';}).join('');
@@ -169,15 +175,18 @@ function renderNote(){
   s+='<p><b>Where spend comes from.</b> The Ad Spend figure above is account level spend from Meta for this window, '+
     money(p.acct)+'. Of that, '+money(p.listed)+' sits on the ads listed below; the rest went to ads that produced no tracked revenue, so the rows deliberately sum to less than the total. Searchlight reports '+
     money(p.sl)+' for the same window, which is its own internal allocation and is not used anywhere on this page.</p>';
+  s+='<p><b>CAC (cost per acquisition)</b> is Meta ad spend divided by purchases, the closed paying customers Searchlight reports. The headline CAC divides all account spend in the window by all Facebook purchases, including the purchases listed below as not attributable to an ad. Each ad\'s CAC divides that ad\'s own spend by its own purchases and shows n/a when the ad has no purchases or no spend in the window. Lower is better, so sorting by CAC puts the cheapest first.</p>';
   s+='<p><b>Revenue is credited to the date of the first click, not the date the job closed.</b> That means this view structurally undervalues recently launched ads, and short window ROAS can look inflated. Read the 90 day and year to date views together with the 28 day one.</p>';
   return s;
 }
 
 function renderCards(){
   var list=sorted(),c=COLS[SORT];
-  var top=0;list.forEach(function(a){var v=val(a,c);if(v>top)top=v;});
+  var top=0,best=null;list.forEach(function(a){var v=val(a,c);if(v>top)top=v;if(v!==null&&v>0&&(best===null||v<best))best=v;});
   return list.map(function(a,i){
-    var v=val(a,c),pct=top>0?Math.max(2,Math.round(v/top*100)):2;
+    var v=val(a,c),pct;
+    if(c.k==='cac')pct=(v&&best)?Math.max(2,Math.round(best/v*100)):2;
+    else pct=top>0?Math.max(2,Math.round(v/top*100)):2;
     var badge='';
     if(a[9]>1) badge='<span class="bdg blue">'+a[9]+' ads share this name, spend summed</span>';
     else if(!a[3]) badge='<span class="bdg amber">'+esc(a[8])+'</span>';
@@ -208,7 +217,7 @@ function renderTable(){
   list.forEach(function(a){tc+=a[4];ts+=(a[5]||0);tp+=a[6];tt+=a[7];});
   var tot='<tr class="tot"><td class="l"></td><td class="l">Listed ads</td><td></td><td>'+money(tc)+
     '</td><td>'+money(ts)+'</td><td>'+tp+'</td><td>'+(ts?(tc/ts).toFixed(2)+'x':'n/a')+
-    '</td><td>'+money(tt)+'</td><td>'+(ts?(tt/ts).toFixed(2)+'x':'n/a')+'</td></tr>';
+    '</td><td>'+((ts&&tp)?money(ts/tp):'n/a')+'</td><td>'+money(tt)+'</td><td>'+(ts?(tt/ts).toFixed(2)+'x':'n/a')+'</td></tr>';
   return '<table><thead>'+head+'</thead><tbody>'+body+tot+'</tbody></table>';
 }
 
@@ -271,7 +280,7 @@ document.addEventListener('click',function(e){
   if(t.classList.contains('rbtn')){RANGE=t.dataset.r;render();return;}
   if(t.classList.contains('vbtn')){VIEW=t.dataset.v;render();return;}
   var i=parseInt(t.dataset.i,10);
-  if(i===SORT)DESC=!DESC;else{SORT=i;DESC=true;}
+  if(i===SORT)DESC=!DESC;else{SORT=i;DESC=!COLS[i].asc;}
   render();
 });
 render();
